@@ -1,0 +1,36 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+    float user_input = 0;
+    int number_of_qtrs;
+    int number_of_dimes;
+    int number_of_nickels;
+    int change;
+    int remainder;
+    
+    do{
+    printf("O hai! How much change is owed?\n");
+    user_input = GetFloat();
+    }while (user_input<0);
+   
+    user_input = (user_input * 100);
+    change = (int) round (user_input);
+    
+    number_of_qtrs = change/25;
+    remainder = change % 25;
+    
+    number_of_dimes = remainder/10;
+    remainder = remainder % 10;
+   
+    number_of_nickels = remainder/5;
+    remainder = remainder % 5;
+    
+    change = number_of_qtrs + number_of_dimes + number_of_nickels + remainder;
+    printf("%d\n", change);
+    
+    return 0;
+    
+}
